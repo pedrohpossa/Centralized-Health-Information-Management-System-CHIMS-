@@ -1,2 +1,4 @@
-# Centralized-Health-Information-Management-System-CHIMS-
-Um sistema de prontuário eletrônico unificado (CHIMS) projetado para centralizar o histórico clínico do paciente. O projeto visa mitigar os riscos da fragmentação de dados e da alta rotatividade de profissionais na saúde , garantindo a continuidade do tratamento e a segurança do paciente.
+<h1 align="center"> SISTEMA DE GESTÃO DE INFORMAÇÃO DE SAÚDE CENTRALIZADA </h1>
+<p align="center">
+<img alt="Static Badge" src="https://img.shields.io/badge/STATUS-EM ANDAMENTO-orange?style=for-the-badge">
+</p>
