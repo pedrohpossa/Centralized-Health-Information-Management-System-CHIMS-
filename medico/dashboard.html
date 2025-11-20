@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Painel do Médico - CHIMS</title>
+    
+    <meta name="description" content="Seu painel de trabalho no sistema CHIMS. Acesse a agenda do dia e busque por pacientes.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+
+    <header>
+        <div>
+            <a href="./dashboard.html">
+                <img src="../img/logo.png" alt="Logo do sistema CHIMS">
+            </a>
+        </div>
+        <div>
+            <span>Olá, Dr(a). [Nome do Médico]!</span>
+            <a href="#">Sair</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="./dashboard.html">Painel Principal</a></li> 
+            <li><a href="./prontuario-paciente.html">Prontuário do Paciente</a></li>
+            <li><a href="./gerar-receita.html">Gerar Receita</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Painel Principal</h1>
+
+        <section>
+            <h2>Buscar Paciente</h2>
+            <form>
+                <label for="busca-paciente">Buscar por Nome ou CPF</label>
+                <input type="search" id="busca-paciente" name="busca-paciente" placeholder="Digite para encontrar um paciente...">
+                <button type="submit">Buscar</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Consultas de Hoje</h2>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Horário</th>
+                        <th>Paciente</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="agenda-tbody">
+                </tbody>
+            </table>
+
+            <div id="loading-state">
+                <p>Carregando agenda...</p>
+            </div>
+            <div id="empty-state">
+                <p>Nenhuma consulta agendada para hoje.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 CHIMS. Todos os direitos reservados.</p>
+    </footer>
+
+    <template id="agenda-row-template">
+        <tr>
+            <td data-placeholder="horario"></td>
+            <td data-placeholder="nome-paciente"></td>
+            <td>
+                <a href="#" data-action="access" data-paciente-id="">Acessar Prontuário</a>
+            </td>
+        </tr>
+    </template>
+<script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/medico.js"></script>
+</body>
+</html>

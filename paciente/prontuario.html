@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meu Prontuário - CHIMS</title>
+    
+    <meta name="description" content="Acesse seu histórico de saúde completo, incluindo consultas, exames e receitas no sistema CHIMS.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+
+    <header>
+        <div>
+            <a href="./dashboard.html">
+                <img src="../img/logo.png" alt="Logo do sistema CHIMS">
+            </a>
+        </div>
+        <div>
+            <span>Olá, [Nome do Paciente]!</span>
+            <a href="#">Sair</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="./dashboard.html">Meu Painel</a></li>
+            <li><a href="./prontuario.html">Meu Prontuário</a></li> <li><a href="./exames.html">Meus Exames</a></li>
+            <li><a href="./receitas.html">Minhas Receitas</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Meu Prontuário Digital</h1>
+        <p>Aqui você encontra todos os registros do seu histórico de saúde em ordem cronológica.</p>
+
+        <section>
+            
+            <div id="prontuario-timeline">
+                </div>
+
+            <div id="loading-state">
+                <p>Carregando seu histórico de saúde...</p>
+            </div>
+            <div id="empty-state">
+                <p>Nenhum registro foi encontrado no seu prontuário.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 CHIMS. Todos os direitos reservados.</p>
+    </footer>
+
+    <template id="timeline-item-template">
+        <article>
+            <header>
+                <h3 data-placeholder="titulo-registro"></h3>
+                <time data-placeholder="data-registro"></time>
+            </header>
+            <div>
+                <p data-placeholder="descricao"></p>
+                <div data-placeholder="detalhes">
+                    </div>
+                <div data-placeholder="acoes">
+                    </div>
+            </div>
+        </article>
+    </template>
+<script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/paciente.js"></script>
+</body>
+</html>

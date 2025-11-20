@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Painel Administrativo - CHIMS</title>
+    
+    <meta name="description" content="Painel de controle para administração do sistema CHIMS.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+
+    <header>
+        <div>
+            <a href="./dashboard.html">
+                <img src="../img/logo.png" alt="Logo do sistema CHIMS">
+            </a>
+        </div>
+        <div>
+            <span>Olá, [Nome do Admin]!</span>
+            <a href="#">Sair</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="./dashboard.html">Painel Principal</a></li> <li><a href="./gerenciar-usuarios.html">Gerenciar Usuários</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Painel Administrativo</h1>
+
+        <section>
+            <h2>Ações Rápidas</h2>
+            <a href="./criar-editar-usuario.html?perfil=paciente">Cadastrar Novo Paciente</a>
+            <a href="./criar-editar-usuario.html?perfil=medico">Cadastrar Novo Médico</a>
+        </section>
+
+        <section>
+            <h2>Estatísticas do Sistema</h2>
+            
+            <article>
+                <h3>Total de Pacientes</h3>
+                <p id="total-pacientes">[Número]</p>
+            </article>
+
+            <article>
+                <h3>Total de Médicos</h3>
+                <p id="total-medicos">[Número]</p>
+            </article>
+
+            <article>
+                <h3>Novos Cadastros na Semana</h3>
+                <p id="novos-cadastros-semana">[Número]</p>
+            </article>
+
+        </section>
+
+        <section>
+            <h2>Atividades Recentes</h2>
+            <ul id="atividades-recentes-lista">
+                <li>Novo paciente "[Nome do Paciente]" cadastrado.</li>
+                <li>Novo médico "Dr(a). [Nome do Médico]" cadastrado.</li>
+                <li>Dados do paciente "[Nome do Paciente]" foram atualizados.</li>
+            </ul>
+            <a href="./gerenciar-usuarios.html">Ver todos os usuários...</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 CHIMS. Todos os direitos reservados.</p>
+    </footer>
+<script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/admin.js"></script>
+</body>
+</html>

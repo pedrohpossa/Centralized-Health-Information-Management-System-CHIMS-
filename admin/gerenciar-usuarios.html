@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gerenciar Usuários - CHIMS</title>
+    
+    <meta name="description" content="Gerencie todas as contas de usuários, incluindo pacientes e médicos, no sistema CHIMS.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+
+    <header>
+        <div>
+            <a href="./dashboard.html">
+                <img src="../img/logo.png" alt="Logo do sistema CHIMS">
+            </a>
+        </div>
+        <div>
+            <span>Olá, [Nome do Admin]!</span>
+            <a href="#">Sair</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="./dashboard.html">Painel Principal</a></li>
+            <li><a href="./gerenciar-usuarios.html">Gerenciar Usuários</a></li> </ul>
+    </nav>
+
+    <main>
+        <header>
+            <h1>Gerenciamento de Usuários</h1>
+            <a href="./criar-editar-usuario.html">Adicionar Novo Usuário</a>
+        </header>
+
+        <section>
+            <form>
+                <label for="busca-usuario">Buscar por Nome, CPF ou Email:</label>
+                <input type="search" id="busca-usuario" name="busca-usuario">
+                
+                <label for="filtro-perfil">Filtrar por Perfil:</label>
+                <select id="filtro-perfil" name="filtro-perfil">
+                    <option value="todos">Todos</option>
+                    <option value="paciente">Pacientes</option>
+                    <option value="medico">Médicos</option>
+                </select>
+                
+                <button type="submit">Buscar / Filtrar</button>
+            </form>
+        </section>
+
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome Completo</th>
+                        <th>CPF</th>
+                        <th>Email</th>
+                        <th>Perfil</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="usuarios-tbody">
+                </tbody>
+            </table>
+            
+            <div id="loading-state">
+                <p>Carregando lista de usuários...</p>
+            </div>
+            <div id="empty-state">
+                <p>Nenhum usuário encontrado com os filtros selecionados.</p>
+            </div>
+        </section>
+
+        <nav>
+             <span>Página 1 de X</span>
+        </nav>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 CHIMS. Todos os direitos reservados.</p>
+    </footer>
+
+    <template id="usuario-row-template">
+        <tr>
+            <td data-placeholder="nome"></td>
+            <td data-placeholder="cpf"></td>
+            <td data-placeholder="email"></td>
+            <td data-placeholder="perfil"></td>
+            <td><span data-placeholder="status"></span></td>
+            <td>
+                <a href="#" data-action="edit" data-user-id="">Editar</a>
+                <button type="button" data-action="toggle-status" data-user-id="">Desativar</button>
+                <button type="button" class="btn--danger" data-action="delete" data-user-id="">Excluir</button>
+            </td>
+        </tr>
+    </template>
+<script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/admin.js"></script>
+</body>
+</html>

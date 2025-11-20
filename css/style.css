@@ -1,0 +1,189 @@
+/* ===================================================================
+ * CSS GLOBAL DO PROJETO (style.css)
+ * Projeto: CHIMS - Centralized Health Information Management System
+ * Descrição: Este arquivo é a fundação do Design System, definindo
+ * variáveis, resets, tipografia e estilos de componentes
+ * universais para toda a aplicação.
+ * =================================================================== */
+
+/* --- 1. Importação das Fontes (Google Fonts) --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@600;700&display=swap');
+
+/* --- 2. Variáveis Globais (Design Tokens) --- */
+:root {
+    /* Paleta de Cores */
+    --color-primary: #3388EE; /* Azul CHIMS - Profissional e Acessível */
+    --color-primary-dark: #206dca;
+    --color-primary-light: #e3effc;
+
+    --color-secondary: #6c757d; /* Cinza para ações secundárias */
+
+    --color-text-primary: #212529;   /* Preto quase puro para textos */
+    --color-text-secondary: #6c757d;/* Cinza para textos de apoio */
+    --color-border: #dee2e6;       /* Cinza claro para bordas */
+    --color-bg: #F8F9FA;          /* Cinza muito claro para o fundo geral */
+    --color-white: #FFFFFF;
+
+    --color-success: #198754; /* Verde para sucesso */
+    --color-danger: #DC3545;  /* Vermelho para erro/perigo */
+    --color-warning: #FFC107; /* Amarelo para alertas */
+
+    /* Tipografia */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-size-base: 16px;
+    --line-height-base: 1.6;
+
+    /* Espaçamento (8-Point Grid System) */
+    --spacing-1: 4px;
+    --spacing-2: 8px;
+    --spacing-3: 16px;
+    --spacing-4: 24px;
+    --spacing-5: 32px;
+    --spacing-6: 48px;
+
+    /* Outros */
+    --border-radius: 8px;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --transition: all 0.2s ease-in-out;
+}
+
+/* --- 3. Reset Global e Estilos Base --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--color-text-primary);
+    background-color: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- 4. Tipografia --- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: var(--spacing-3);
+    color: var(--color-text-primary);
+}
+
+h1 { font-size: 2.25rem; } /* 36px */
+h2 { font-size: 1.75rem; } /* 28px */
+h3 { font-size: 1.25rem; } /* 20px */
+
+p {
+    margin-bottom: var(--spacing-3);
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+a:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+}
+
+/* --- 5. Componentes Reutilizáveis --- */
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 10px var(--spacing-3);
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    transition: var(--transition);
+    user-select: none; /* Impede seleção de texto ao clicar */
+}
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
+}
+.btn:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+}
+
+.btn-secondary {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+/* Formulários */
+.form-group {
+    margin-bottom: var(--spacing-3);
+}
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: var(--spacing-2);
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+}
+
+/* Cards */
+.card {
+    background-color: var(--color-white);
+    padding: var(--spacing-4);
+    border-radius: var(--border-radius);
+    border: 1px solid #e9ecef;
+    box-shadow: var(--shadow-sm);
+}
+
+
+/* --- 6. Classes Utilitárias --- */
+.text-center { text-align: center; }
+.mt-4 { margin-top: var(--spacing-4); }

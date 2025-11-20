@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meus Exames - CHIMS</title>
+    
+    <meta name="description" content="Acesse e baixe todos os seus resultados de exames no sistema CHIMS.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+
+    <header>
+        <div>
+            <a href="./dashboard.html">
+                <img src="../img/logo.png" alt="Logo do sistema CHIMS">
+            </a>
+        </div>
+        <div>
+            <span>Olá, [Nome do Paciente]!</span>
+            <a href="#">Sair</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="./dashboard.html">Meu Painel</a></li>
+            <li><a href="./prontuario.html">Meu Prontuário</a></li>
+            <li><a href="./exames.html">Meus Exames</a></li> <li><a href="./receitas.html">Minhas Receitas</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Meus Resultados de Exames</h1>
+        <p>Aqui você encontra todos os resultados de exames que foram anexados ao seu prontuário.</p>
+
+        <section>
+            <form>
+                <label for="ordenar-exames">Ordenar por:</label>
+                <select id="ordenar-exames" name="ordenar-exames">
+                    <option value="recentes">Mais recentes</option>
+                    <option value="antigos">Mais antigos</option>
+                </select>
+            </form>
+        </section>
+
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Nome do Exame</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="exames-lista-tbody">
+                </tbody>
+            </table>
+
+            <div id="loading-state">
+                <p>Carregando seus exames...</p>
+            </div>
+            <div id="empty-state">
+                <p>Nenhum resultado de exame foi encontrado no seu prontuário.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 CHIMS. Todos os direitos reservados.</p>
+    </footer>
+
+    <template id="exame-row-template">
+        <tr>
+            <td data-placeholder="data"></td>
+            <td data-placeholder="nome-exame"></td>
+            <td data-placeholder="status"></td>
+            <td>
+                <a href="#" data-action="view" data-exame-id="">Visualizar</a> | 
+                <a href="#" data-action="download" data-exame-id="">Baixar (PDF)</a>
+            </td>
+        </tr>
+    </template>
+<script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/paciente.js"></script>
+</body>
+</html>

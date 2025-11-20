@@ -1,0 +1,174 @@
+/* ===================================================================
+ * CSS AVANÇADO DA PÁGINA DE LOGIN (login.css)
+ * Projeto: CHIMS
+ * Versão: 2.0 "Premium Experience"
+ * Foco: Layout Split-Screen, Espaçamento, Animações e Micro-interações
+ * =================================================================== */
+
+/* --- 1. Estrutura Principal (Split-Screen) --- */
+
+@keyframes slideInLeft { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+@keyframes slideInRight { from { transform: translateX(100%); } to { transform: translateX(0); } }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.login-page {
+    overflow: hidden; /* Previne scrollbar durante as animações de entrada */
+}
+
+.login-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas de larguras iguais */
+    min-height: 100vh;
+}
+
+/* --- 2. Painel de Branding (Esquerda) --- */
+.branding-panel {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-6);
+    animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.branding-content {
+    max-width: 400px;
+    text-align: center;
+}
+
+.branding-content .logo {
+    max-width: 150px;
+    margin-bottom: var(--spacing-5);
+    filter: brightness(0) invert(1); /* Deixa o logo branco */
+}
+
+.branding-content h1 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: var(--spacing-4);
+    color: var(--color-white);
+    animation: fadeInUp 0.5s ease-out 0.5s forwards;
+    opacity: 0;
+}
+
+.branding-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    opacity: 0.8;
+    animation: fadeInUp 0.5s ease-out 0.7s forwards;
+    opacity: 0;
+}
+
+/* --- 3. Painel do Formulário (Direita) --- */
+.form-panel {
+    background-color: var(--color-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-5);
+    position: relative;
+    animation: slideInRight 0.8s ease-out forwards;
+}
+
+.form-content {
+    width: 100%;
+    max-width: 380px;
+}
+
+.form-content header {
+    text-align: center;
+    margin-bottom: var(--spacing-5);
+    animation: fadeInUp 0.5s ease-out 0.5s forwards;
+    opacity: 0;
+}
+
+.form-content h2 {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-text-primary);
+}
+
+.form-content p {
+    color: var(--color-text-secondary);
+}
+
+/* --- 4. Micro-interação: Floating Labels --- */
+.input-group {
+    position: relative;
+    margin-bottom: var(--spacing-4);
+}
+
+.input-group input {
+    /* Herda de style.css, mas garantimos o fundo transparente */
+    background-color: transparent;
+    position: relative;
+    z-index: 1; /* Para ficar acima da label */
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: var(--color-text-secondary);
+    background-color: var(--color-white);
+    padding: 0 var(--spacing-1);
+    transition: all 0.2s ease-out;
+    pointer-events: none; /* Permite clicar "através" da label */
+}
+
+/* A mágica acontece aqui: quando o input está focado ou preenchido, a label sobe */
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: 0;
+    left: 8px;
+    font-size: 0.8rem;
+    color: var(--color-primary);
+    z-index: 2;
+}
+
+.form-options {
+    text-align: right;
+    margin-top: calc(-1 * var(--spacing-3)); /* Puxa para mais perto do input de senha */
+    margin-bottom: var(--spacing-4);
+}
+
+/* --- 5. Botão Aprimorado e Rodapé --- */
+#login-form {
+    /* Animação escalonada para o formulário */
+    animation: fadeInUp 0.5s ease-out 0.7s forwards;
+    opacity: 0;
+}
+
+#login-form button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(51, 136, 238, 0.3); /* Sombra com a cor primária */
+}
+
+.form-panel footer {
+    position: absolute;
+    bottom: var(--spacing-4);
+    text-align: center;
+    width: 100%;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+/* --- 6. Responsividade --- */
+@media (max-width: 992px) {
+    .login-container {
+        grid-template-columns: 1fr; /* Coluna única em telas menores */
+    }
+    .branding-panel {
+        /* Esconde o painel de branding em telas pequenas para focar no formulário */
+        display: none;
+    }
+    .form-panel {
+        /* Remove a animação de entrada da direita em mobile */
+        animation: none;
+    }
+}

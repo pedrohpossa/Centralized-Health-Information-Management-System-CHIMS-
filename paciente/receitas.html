@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Minhas Receitas - CHIMS</title>
+    
+    <meta name="description" content="Acesse e gerencie suas receitas médicas digitais no sistema CHIMS.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+
+    <header>
+        <div>
+            <a href="./dashboard.html">
+                <img src="../img/logo.png" alt="Logo do sistema CHIMS">
+            </a>
+        </div>
+        <div>
+            <span>Olá, [Nome do Paciente]!</span>
+            <a href="#">Sair</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="./dashboard.html">Meu Painel</a></li>
+            <li><a href="./prontuario.html">Meu Prontuário</a></li>
+            <li><a href="./exames.html">Meus Exames</a></li>
+            <li><a href="./receitas.html">Minhas Receitas</a></li> </ul>
+    </nav>
+
+    <main>
+        <h1>Minhas Receitas Médicas</h1>
+        <p>Consulte todas as suas receitas emitidas e baixe-as sempre que precisar.</p>
+
+        <section id="receitas-lista-container">
+            </section>
+
+        <div id="loading-state">
+            <p>Carregando suas receitas...</p>
+        </div>
+        <div id="empty-state">
+            <p>Nenhuma receita foi encontrada no seu prontuário.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 CHIMS. Todos os direitos reservados.</p>
+    </footer>
+
+    <template id="receita-card-template">
+        <article>
+            <header>
+                <h3 data-placeholder="medico"></h3>
+                <time data-placeholder="data-emissao"></time>
+            </header>
+            <div>
+                <p data-placeholder="resumo-medicamentos"></p>
+            </div>
+            <footer>
+                <span data-placeholder="status"></span>
+                <button data-action="view" data-receita-id="">Ver Receita</button>
+            </footer>
+        </article>
+    </template>
+
+    <div id="receita-modal">
+        <section>
+            <header>
+                <h2>Receita Médica Digital</h2>
+                <button data-action="close-modal">&times;</button>
+            </header>
+            
+            <article>
+                <header>
+                    <h4>Médico(a)</h4>
+                    <p data-placeholder="modal-medico-nome"></p>
+                    <p data-placeholder="modal-medico-crm"></p>
+                </header>
+                
+                <section>
+                    <h4>Paciente</h4>
+                    <p data-placeholder="modal-paciente-nome"></p>
+                    <p data-placeholder="modal-paciente-cpf"></p>
+                </section>
+                
+                <section>
+                    <h4>Prescrição</h4>
+                    <ul id="modal-medicamentos-lista">
+                        </ul>
+                </section>
+
+                <footer>
+                    <p>Data de Emissão: <time data-placeholder="modal-data-emissao"></time></p>
+                    <p>Validade: <time data-placeholder="modal-data-validade"></time></p>
+                </footer>
+            </article>
+
+            <footer>
+                <button data-action="print">Imprimir</button>
+                <button data-action="download">Baixar (PDF)</button>
+            </footer>
+        </section>
+    </div>
+<script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/paciente.js"></script>
+</body>
+</html>

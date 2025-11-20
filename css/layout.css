@@ -1,0 +1,194 @@
+/* ===================================================================
+ * CSS DE LAYOUT PRINCIPAL (layout.css) - VERSÃO DEFINITIVA
+ * Projeto: CHIMS
+ * Foco: Layout premium, espaçamento generoso, interações refinadas
+ * e uma experiência de usuário superior, adaptado para o HTML existente.
+ * =================================================================== */
+
+/* --- 1. Variáveis de Layout e Animações --- */
+:root {
+    --sidebar-width: 280px;
+    --header-height: 75px;
+    --layout-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- 2. Estrutura Principal (Sidebar Fixa + Conteúdo com Margem) --- */
+body {
+    background-color: var(--color-bg);
+}
+
+/* A Sidebar (sua tag <nav>) */
+body > nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    z-index: 1000;
+    background-color: var(--color-white);
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-4);
+    transition: var(--layout-transition);
+}
+
+/* O Resto do Conteúdo (header, main, footer) */
+body > header,
+body > main,
+body > footer {
+    margin-left: var(--sidebar-width);
+    transition: var(--layout-transition);
+    margin-bottom: 20px;
+}
+
+
+/* --- 3. Componentes de Layout Detalhados --- */
+
+/* Cabeçalho Superior Flutuante (Glassmorphism) */
+body > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: var(--header-height);
+    padding: 0 var(--spacing-5);
+    background-color: rgba(248, 249, 250, 0.75);
+    backdrop-filter: saturate(180%) blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 900;
+    border-bottom: 1px solid var(--color-border);
+}
+body > header img {
+    height: 35px;
+    opacity: 0.9;
+}
+body > header span {
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+
+/* Sidebar / Navegação com Design "Pílula" */
+body > nav ul {
+    list-style: none;
+    margin-top: var(--spacing-5);
+}
+
+body > nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    margin-bottom: var(--spacing-2);
+    border-radius: var(--border-radius);
+    color: var(--color-text-secondary);
+    font-weight: 600;
+    transition: all 0.25s ease;
+    position: relative;
+    top: 0;
+}
+
+body > nav a:hover {
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    text-decoration: none;
+    transform: translateX(5px);
+}
+
+/* O estilo do link ATIVO é o principal destaque visual */
+/* Adicione a classe "active" na <li> da página atual no HTML */
+body > nav li.active > a {
+    background: var(--color-primary);
+    color: var(--color-white);
+    box-shadow: 0 8px 20px -5px rgba(51, 136, 238, 0.5);
+    transform: translateX(0);
+}
+
+
+/* Conteúdo Principal com mais "Respiro" */
+body > main {
+    padding: var(--spacing-6);
+    min-height: calc(100vh - var(--header-height) - 70px); /* 70px = altura aprox. do footer */
+    animation: fadeIn 0.5s ease;
+}
+
+/* Animação de entrada para todos os elementos diretos da main */
+body > main > * {
+    animation: fadeInUp 0.5s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+body > main > header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-5);
+}
+body > main > header h1 {
+    margin: 0;
+}
+
+
+/* Rodapé */
+body > footer {
+    padding: var(--spacing-4);
+    text-align: center;
+    background-color: var(--color-white);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+}
+
+
+/* --- 4. Layout Responsivo Profissional (Mobile) --- */
+
+@media (max-width: 992px) {
+    /* Em telas pequenas, a sidebar some e o conteúdo ocupa tudo */
+    body > nav {
+        transform: translateX(-100%);
+    }
+
+    body > header,
+    body > main,
+    body > footer {
+        margin-left: 0;
+    }
+
+    /* A classe que o JavaScript pode adicionar ao <body> para mostrar o menu */
+    body.sidebar-visible > nav {
+        transform: translateX(0);
+        box-shadow: var(--shadow-lg);
+    }
+    
+    /* Overlay para escurecer o conteúdo quando o menu estiver aberto */
+    .overlay {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(0,0,0,0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+    }
+    body.sidebar-visible .overlay {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* O botão para ativar o menu (deve ser adicionado no HTML do header) */
+    #menu-toggle-btn {
+        display: block; /* Garante que o botão hambúrguer apareça */
+        z-index: 1001;
+    }
+}

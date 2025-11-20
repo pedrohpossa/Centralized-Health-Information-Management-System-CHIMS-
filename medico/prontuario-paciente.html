@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Prontuário do Paciente - CHIMS</title>
+    
+    <meta name="description" content="Visualize e gerencie o histórico de saúde completo de seus pacientes no sistema CHIMS.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+
+    <header>
+        <div>
+            <a href="./dashboard.html">
+                <img src="../img/logo.png" alt="Logo do sistema CHIMS">
+            </a>
+        </div>
+        <div>
+            <span>Olá, Dr(a). [Nome do Médico]!</span>
+            <a href="#">Sair</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="./dashboard.html">Painel Principal</a></li>
+            <li><a href="./prontuario-paciente.html">Prontuário do Paciente</a></li>
+            <li><a href="./gerar-receita.html">Gerar Receita</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Prontuário do Paciente</h1>
+
+        <section>
+            <h2>Dados do Paciente</h2>
+            <div>
+                <p><strong>Nome:</strong> <span id="paciente-nome">[Nome do Paciente]</span></p>
+                <p><strong>Data de Nascimento:</strong> <span id="paciente-dtnasc">[Data de Nascimento]</span></p>
+                <p><strong>CPF:</strong> <span id="paciente-cpf">[CPF do Paciente]</span></p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Ações</h2>
+            <button type="button" data-action="abrir-modal-consulta">Adicionar Registro de Consulta</button>
+            <button type="button" data-action="abrir-modal-exame">Anexar Resultado de Exame</button>
+            <a href="#" id="link-gerar-receita">Gerar Nova Receita</a>
+        </section>
+        
+        <section>
+            <h2>Histórico Completo</h2>
+            <div id="prontuario-timeline-container">
+                </div>
+
+            <div id="loading-state">
+                <p>Carregando prontuário...</p>
+            </div>
+            <div id="empty-state">
+                <p>Este paciente ainda não possui registros no prontuário.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 CHIMS. Todos os direitos reservados.</p>
+    </footer>
+
+    <template id="prontuario-item-template">
+        <article>
+            <header>
+                <h3 data-placeholder="titulo-registro"></h3>
+                <time data-placeholder="data-registro"></time>
+            </header>
+            <div>
+                <p data-placeholder="descricao"></p>
+                <div data-placeholder="detalhes"></div>
+            </div>
+        </article>
+    </template>
+
+    <div id="modal-add-consulta">
+        <section>
+            <header>
+                <h2>Adicionar Registro de Consulta</h2>
+                <button data-action="fechar-modal">&times;</button>
+            </header>
+            <form id="form-add-consulta">
+                <div>
+                    <label for="consulta-descricao">Descrição da Consulta / Evolução</label>
+                    <textarea id="consulta-descricao" name="consulta-descricao" rows="10" required></textarea>
+                </div>
+                <div>
+                    <label for="consulta-diagnostico">Hipótese Diagnóstica</label>
+                    <input type="text" id="consulta-diagnostico" name="consulta-diagnostico">
+                </div>
+                <button type="submit">Salvar Registro</button>
+            </form>
+        </section>
+    </div>
+
+    <div id="modal-add-exame">
+        <section>
+            <header>
+                <h2>Anexar Resultado de Exame</h2>
+                <button data-action="fechar-modal">&times;</button>
+            </header>
+            <form id="form-add-exame">
+                <div>
+                    <label for="exame-nome">Nome do Exame</label>
+                    <input type="text" id="exame-nome" name="exame-nome" required>
+                </div>
+                <div>
+                    <label for="exame-arquivo">Arquivo (PDF, JPG, PNG)</label>
+                    <input type="file" id="exame-arquivo" name="exame-arquivo" required>
+                </div>
+                 <div>
+                    <label for="exame-laudo">Laudo / Observações</label>
+                    <textarea id="exame-laudo" name="exame-laudo" rows="5"></textarea>
+                </div>
+                <button type="submit">Anexar Exame</button>
+            </form>
+        </section>
+    </div>
+<script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/medico.js"></script>
+</body>
+</html>

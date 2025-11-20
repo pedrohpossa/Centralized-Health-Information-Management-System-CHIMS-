@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Meu Painel - CHIMS</title>
+    
+    <meta name="description" content="Seu painel de saúde pessoal no sistema CHIMS.">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/components.css">
+</head>
+<body>
+
+    <header>
+        <div>
+            <a href="./dashboard.html">
+                <img src="../img/logo.png" alt="Logo do sistema CHIMS">
+            </a>
+        </div>
+        <div>
+            <span>Olá, [Nome do Paciente]!</span>
+            <a href="#">Sair</a>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="./dashboard.html">Meu Painel</a></li>
+            <li><a href="./prontuario.html">Meu Prontuário</a></li>
+            <li><a href="./exames.html">Meus Exames</a></li>
+            <li><a href="./receitas.html">Minhas Receitas</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Meu Painel de Saúde</h1>
+
+        <section>
+            <h2>Acesso Rápido</h2>
+            
+            <article>
+                <h3>Próxima Consulta Agendada</h3>
+                <p>Data: [Data da Consulta]</p>
+                <p>Médico(a): [Nome do Médico]</p>
+                <a href="#">Ver detalhes</a>
+            </article>
+
+            <article>
+                <h3>Último Exame Adicionado</h3>
+                <p>Tipo: [Nome do Exame]</p>
+                <p>Adicionado em: [Data do Exame]</p>
+                <a href="./exames.html">Ver todos os exames</a>
+            </article>
+
+            <article>
+                <h3>Minhas Receitas</h3>
+                <p>Você tem [X] receitas ativas.</p>
+                <a href="./receitas.html">Ver todas as receitas</a>
+            </article>
+
+        </section>
+
+        <section>
+            <h2>Últimas Atualizações no seu Prontuário</h2>
+            <ul>
+                <li>Consulta de rotina com Dr(a). [Nome do Médico] - [Data]</li>
+                <li>Resultado de Hemograma Completo adicionado - [Data]</li>
+                <li>Receita de [Medicamento] emitida por Dr(a). [Nome do Médico] - [Data]</li>
+            </ul>
+            <a href="./prontuario.html">Ver prontuário completo...</a>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 CHIMS. Todos os direitos reservados.</p>
+    </footer>
+<script src="../js/config.js"></script>
+<script src="../js/api.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/paciente.js"></script>
+</body>
+</html>
