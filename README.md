@@ -11,17 +11,29 @@ Um Prontuário Eletrônico do Paciente (PEP) é uma estrutura informatizada que 
 <br>
 
 <h2 align="left">:busts_in_silhouette:  Porque escolhemos este tema? </h2>
-
+A motivação para este trabalho nasce da urgência em solucionar a fragmentação das informações de saúde e mitigar os impactos da alta rotatividade de profissionais, que frequentemente rompe a continuidade do cuidado médico. Identificamos que a dispersão de dados não apenas gera riscos clínicos e ineficiência, mas também contribui para um passivo ambiental significativo devido ao uso excessivo de papel. A escolha por desenvolver o CHIMS reflete nosso compromisso em criar uma ferramenta de resiliência que assegure a integridade e a acessibilidade do histórico do paciente, promovendo uma assistência mais segura, humana e sustentável.
+Para compreender detalhadamente a fundamentação técnica, a metodologia e os resultados obtidos, convidamos você a ler o <a href="">artigo</a> completo.
 <br>
 <br>
 
 <h2 align="left">✏️ Metodologia </h2>
-
+O desenvolvimento do projeto partiu da modelagem de uma arquitetura de dados centrada no paciente, estruturando relacionamentos que permitem a conexão eficiente entre usuários e seus históricos clínicos. A aplicação foi organizada com base em perfis de acesso hierárquicos (Médico, Paciente e Administrador), garantindo a segurança e a privacidade das informações sensíveis. No que tange à interface, adotou-se um "Design System" exclusivo focado na usabilidade e responsividade, facilitando a navegação intuitiva e o acesso rápido aos módulos de prontuário, agendamento e prescrição, independentemente do dispositivo utilizado.
 <br>
 <br>
 
 <h2 align="left">🧮 Ferramentas e Tecnologias </h2>
-
+<div align="left">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" width="40" height="40" alt="html">
+  &nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" width="40" height="40" alt="css">
+  &nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="40" height="40" alt="javascript">
+  &nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" width="40" height="40" alt="php">
+  &nbsp;
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" width="40" height="40" alt="mysql">
+</div>  
+         
 <br>
 <br>
 
